@@ -2,7 +2,7 @@
 
 ----
 ## What is Money Manager?
-######A dapp that lets you keep track of your expenses
+A dapp that lets you keep track of your expenses
 
 ----
 ## Usage:

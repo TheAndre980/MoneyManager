@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Money Manager</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+
+						<div class="content " id="content">
+							<div class="inner"> 
+								<h1>Money Manager</h1>
+								<p>Keep track of your expenses </p>
+							</div>
+						</div>
+
+						<!-- TOP PART -->
+						<div class="top displaynone hidden " id="top">
+								<div class="budget">
+									<div class="budget__title">
+										Available Budget in <span class="budget__title--month">%Month%</span>:
+									</div>
+									
+									<div class="budget__value" id="budgetV"></div>
+									
+									<div class="budget__income clearfix">
+										<div class="budget__income--text">Income</div>
+										<div class="right" style="
+										float: right">
+											<div class="budget__income--value" id="budgetV2"></div>
+											<div class="budget__income--percentage"></div>
+										</div>
+									</div>
+									
+									<div class="budget__expenses clearfix">
+										<div class="budget__expenses--text">Expenses</div>
+										<div class="right clearfix" style="
+										float: right">
+											<div class="budget__expenses--value" id="expenseV"></div>
+											<div class="budget__expenses--percentage"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- BOTTOM PART -->
+
+							<div class="bottom hidden displaynone" id="bottom">
+									<div class="add">
+										<div class="add__container">
+											<select class="add__type">
+												<option value="inc" selected>Income</option>
+												<option value="exp">Expense</option>
+											</select>
+											<input type="text" class="add__description" placeholder="Add description">
+											<input type="number" class="add__value" placeholder="Value">
+											<button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+										</div>
+									</div>
+									
+									<div class="container clearfix">
+										<div class="income">
+											<h2 class="icome__title">Income</h2>
+											
+											<div class="income__list" id="incomeList">
+											   
+											</div>
+										</div>
+										
+										<div class="expenses">
+											<h2 class="expenses__title">Expenses</h2>
+											
+											<div class="expenses__list" id="expenseList">
+												
+											</div>
+										</div>
+									</div>
+									
+									
+								</div>
+								
+						<!-- BUTTONS -->
+						<nav>
+							<p class="hidden displaynone" id="wallet"></p>
+							<ul>
+								<li><button class="btn btn-light my-2 my-sm-0" type="submit" id="loginBtn">Log In</button></li>
+								<li><button class="btn btn-light my-2 my-sm-0" type="submit" id="saveBtn">Save</button></li>
+							</ul>
+						</nav>
+
+					</header>
+
+					<!-- Modal -->
+					<div id="myModal" class="modal">
+							<!-- Modal content -->
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<p>Place keyfile to manage your Expenses</p>
+							<input type="file" id="keychoose" />
+						</div>
+					</div>
+				<!-- Main -->
+					<div id="main">
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">Css by: <a href="https://html5up.net">HTML5 UP</a>. <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/login.js"></script>
+			<script src="assets/js/script.js"></script>
+			<script src="assets/js/indexBrowserified.js"></script>
+			<script src="https://unpkg.com/arweave/bundles/web.bundle.min.js"></script>
+			<script>
+				const arweave = Arweave.init({
+				  host: "arweave.net",
+				  port: 443,
+				  protocol: "https",
+				  timeout: 20000,
+				  logging: false
+				});
+				arweave.network.getInfo().then(console.log);
+			  </script>
+
+	</body>
+</html>

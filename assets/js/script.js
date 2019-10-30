@@ -153,7 +153,7 @@ async function getMemoir() {
   expensesAR = textArray[1];
   expenseLAR = textArray[4];
   incomeLAR = textArray[2];
-  console.log(textArray[2]);
+  // console.log(textArray[2]);
 
   //// Expense Loop ////
   var  bufferString = expenseLAR;
@@ -172,9 +172,9 @@ async function getMemoir() {
   }
 
   expenseList = jsonObj;
-  console.log(textArray[4]);
-  console.log(jsonObj);
-  console.log(JSON.stringify(expenseList));
+  // console.log(textArray[4]);
+  // console.log(jsonObj);
+  // console.log(JSON.stringify(expenseList));
  
   //////  Income Loop ///
   var  bufferStringr = incomeLAR;
@@ -193,9 +193,9 @@ async function getMemoir() {
   }
 
   incomeList = jsonObjr;
-  console.log(textArray[2]);
-  console.log(jsonObjr);
-  console.log(JSON.stringify(incomeList));
+  // console.log(textArray[2]);
+  // console.log(jsonObjr);
+  // console.log(JSON.stringify(incomeList));
 
 
   
@@ -230,7 +230,7 @@ async function getMemoir() {
     // Create HTML string with expenseList text
     for (const expense in expenseList) {
       element = DOMstrings.expensesContainer;
-      html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+      html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-times-circle"></i></button></div></div></div>'
         // Write the Income and Expense data
 
         var expensy = {
@@ -253,15 +253,15 @@ async function getMemoir() {
         
         datat.allItems.exp.push(expensy)
 
-        console.log(expensy);
-        console.log(datat.allItems.exp)
+        // console.log(expensy);
+        // console.log(datat.allItems.exp)
         // Insert the Income and Expenses
         document.querySelector(element).insertAdjacentHTML("beforeend",newHtml); 
     }
 
     for (const income in incomeList) {
       element = DOMstrings.incomeContainer;
-      html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+      html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-times-circle"></i></button></div></div></div>'
         // Write the Income and Expense data
 
         var incomy = {
@@ -282,15 +282,15 @@ async function getMemoir() {
         
         datat.allItems.inc.push(incomy)
 
-        console.log(incomy);
-        console.log(datat.allItems.inc)
+        // console.log(incomy);
+        // console.log(datat.allItems.inc)
         // Insert the Income and Expenses
         document.querySelector(element).insertAdjacentHTML("beforeend",newHtml); 
     }
  
   console.log(text);
   console.log(textArray);
-  console.log(budgetAR);
+  // console.log(budgetAR);
 }
 
 

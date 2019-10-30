@@ -96,12 +96,12 @@ const { convertArrayToCSV } = require('convert-array-to-csv');
       }
       
 
-      console.log(dataGIncome);
-      console.log(dataGExpenses);
-      console.log(dataMoManager);
+      // console.log(dataGIncome);
+      // console.log(dataGExpenses);
+      // console.log(dataMoManager);
       
-      console.log(datat.allItems.inc);
-      console.log(datat.allItems.exp);
+      // console.log(datat.allItems.inc);
+      // console.log(datat.allItems.exp);
 
       // Return the new element
       return newItem;
@@ -118,7 +118,7 @@ const { convertArrayToCSV } = require('convert-array-to-csv');
               });
 
               index = ids.indexOf(id);
-              console.log(index)
+              // console.log(index)
                 datat.allItems.exp.splice(index, 1);
                
         } else if ( type === "inc") {
@@ -130,7 +130,7 @@ const { convertArrayToCSV } = require('convert-array-to-csv');
               });
 
               index = ids.indexOf(id);
-              console.log(index)
+              // console.log(index)
                 datat.allItems.inc.splice(index, 1);
                
         }
@@ -245,10 +245,10 @@ var UIController = (function(){
       // Create HTML string with placeholder text
       if(type === "inc"){
         element = DOMstrings.incomeContainer;
-        html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-times-circle"></i></button></div></div></div>';
       } else if(type === "exp"){
         element = DOMstrings.expensesContainer;
-        html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+        html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-times-circle"></i></button></div></div></div>'
       }
     
 
@@ -460,14 +460,14 @@ var controller = (function(budgetCtrl,UICtrl){
       splitID = itemID.split("-");
       type = splitID[0];
       ID = parseInt(splitID[1]);
-      console.log(type);
+      // console.log(type);
       
       // 1. Delete the item from the data structure
       budgetController.deleteItem(type, ID);
-      console.log("1" + datat.allItems.exp);
+      // console.log("1" + datat.allItems.exp);
       // 2. Delete the item from the UI
       UICtrl.deleteListItem(itemID);
-      console.log("2" + datat.allItems.exp);
+      // console.log("2" + datat.allItems.exp);
 
       // 3. Update and show the new budget
       updateBudget();

@@ -85,23 +85,26 @@ const { convertArrayToCSV } = require('convert-array-to-csv');
       if(type === "exp"){
 
         const csvExpenses = convertArrayToCSV(datat.allItems.exp);
-        dataGExpenses = "/" + csvExpenses;
-        dataMoManager.splice(3, 1, dataGExpenses);
+        dataGExpenses =  csvExpenses + "/";
+        dataMoManager.splice(1, 1, dataGExpenses);
+        console.log(dataMoManager);
+
 
       } else if(type === "inc") {
 
         const csvIncome = convertArrayToCSV(datat.allItems.inc);
-        dataGIncome =  "/" + csvIncome + "/";
-        dataMoManager.splice(2, 1, dataGIncome);
+        dataGIncome =  csvIncome + "/";
+        dataMoManager.splice(0, 1, dataGIncome);
+        console.log(dataMoManager);
+
       }
       
 
-      // console.log(dataGIncome);
-      // console.log(dataGExpenses);
-      // console.log(dataMoManager);
+      console.log(dataGIncome);
+      console.log(dataGExpenses);
       
-      // console.log(datat.allItems.inc);
-      // console.log(datat.allItems.exp);
+      console.log(datat.allItems.inc);
+      console.log(datat.allItems.exp);
 
       // Return the new element
       return newItem;
@@ -176,7 +179,7 @@ const { convertArrayToCSV } = require('convert-array-to-csv');
     },
 
     // testitem: function(){
-    //   console.log(datat);
+      // console.log(datat);
     // }
   }
 
@@ -405,8 +408,8 @@ var controller = (function(budgetCtrl,UICtrl){
     var budget = budgetController.getBudget();
     budgetExpenseTotal = "/"  + budget.totalExp;
     budgetSave =  budget.budget;
-    dataMoManager.splice(0, 1, budgetSave);
-    dataMoManager.splice(1, 1, budgetExpenseTotal);
+    dataMoManager.splice(2, 1, budgetSave);
+    dataMoManager.splice(3, 1, budgetExpenseTotal);
 
 
     // 3. Display the budget on the UI
@@ -456,25 +459,45 @@ var controller = (function(budgetCtrl,UICtrl){
     itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 
     if(itemID){
-
       splitID = itemID.split("-");
       type = splitID[0];
       ID = parseInt(splitID[1]);
-      // console.log(type);
-      
-      // 1. Delete the item from the data structure
-      budgetController.deleteItem(type, ID);
-      // console.log("1" + datat.allItems.exp);
-      // 2. Delete the item from the UI
-      UICtrl.deleteListItem(itemID);
-      // console.log("2" + datat.allItems.exp);
+       console.log(type);
 
-      // 3. Update and show the new budget
-      updateBudget();
-      // 4. Calculate and update percentages
-      // updatePercentages();
+      switch(type){
+
+        case 'inc':
+          // 1. Delete the item from the data structure
+         budgetController.deleteItem(type, ID);
+         // console.log("1" + datat.allItems.exp);
+         // 2. Delete the item from the UI
+         UICtrl.deleteListItem(itemID);
+         // console.log("2" + datat.allItems.exp);
+   
+         // 3. Update and show the new budget
+         updateBudget();
+         break
+
+         case 'exp':
+           // 1. Delete the item from the data structure
+         budgetController.deleteItem(type, ID);
+         // console.log("1" + datat.allItems.exp);
+         // 2. Delete the item from the UI
+         UICtrl.deleteListItem(itemID);
+         // console.log("2" + datat.allItems.exp);
+   
+         // 3. Update and show the new budget
+         updateBudget();
+      }
+       
+         
+
+      
+      }
+     
     }
-  };
+    
+  
 
   return {
     init: function(){

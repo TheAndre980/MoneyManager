@@ -149,11 +149,12 @@ async function getMemoir() {
 
   var textArray = text.split("/");
   
-  budgetAR = textArray[0];
-  expensesAR = textArray[1];
-  expenseLAR = textArray[4];
-  incomeLAR = textArray[2];
-  // console.log(textArray[2]);
+  budgetAR = textArray[2].replace(",", "");
+  expensesAR = textArray[3];
+  expenseLAR = textArray[1];
+  incomeLAR = textArray[0];
+  console.log(text);
+  console.log(budgetAR);
 
   //// Expense Loop ////
   var  bufferString = expenseLAR;
@@ -162,7 +163,7 @@ async function getMemoir() {
 
   var jsonObj = [];
   var headers = arr[0].split(',');
-  for(var i = 1; i < arr.length-1; i++) {
+  for(var i = 1; i < arr.length - 1; i++) {
     var data = arr[i].split(',');
     var obj = {};
     for(var j = 0; j < data.length; j++) {
@@ -172,9 +173,9 @@ async function getMemoir() {
   }
 
   expenseList = jsonObj;
-  // console.log(textArray[4]);
-  // console.log(jsonObj);
-  // console.log(JSON.stringify(expenseList));
+  console.log(textArray[1]);
+  console.log(jsonObj);
+  console.log(JSON.stringify(expenseList));
  
   //////  Income Loop ///
   var  bufferStringr = incomeLAR;
@@ -183,7 +184,7 @@ async function getMemoir() {
 
   var jsonObjr = [];
   var headersr = arrr[0].split(',');
-  for(var i = 1; i < arrr.length-1; i++) {
+  for(var i = 1; i < arrr.length - 1; i++) {
     var datar = arrr[i].split(',');
     var objr = {};
     for(var j = 0; j < datar.length; j++) {
@@ -193,9 +194,9 @@ async function getMemoir() {
   }
 
   incomeList = jsonObjr;
-  // console.log(textArray[2]);
-  // console.log(jsonObjr);
-  // console.log(JSON.stringify(incomeList));
+  console.log(textArray[0]);
+  console.log(jsonObjr);
+  console.log(JSON.stringify(incomeList));
 
 
   
@@ -253,8 +254,8 @@ async function getMemoir() {
         
         datat.allItems.exp.push(expensy)
 
-        // console.log(expensy);
-        // console.log(datat.allItems.exp)
+        console.log(expensy);
+        console.log(datat.allItems.exp)
         // Insert the Income and Expenses
         document.querySelector(element).insertAdjacentHTML("beforeend",newHtml); 
     }
@@ -282,15 +283,15 @@ async function getMemoir() {
         
         datat.allItems.inc.push(incomy)
 
-        // console.log(incomy);
-        // console.log(datat.allItems.inc)
+        console.log(incomy);
+        console.log(datat.allItems.inc)
         // Insert the Income and Expenses
         document.querySelector(element).insertAdjacentHTML("beforeend",newHtml); 
     }
  
   console.log(text);
   console.log(textArray);
-  // console.log(budgetAR);
+  console.log(budgetAR);
 }
 
 
